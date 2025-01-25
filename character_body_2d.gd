@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_z") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
 	# Handles bubble jump
@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		#velocity = velocity.bounce(collision.get_normal())
 		velocity.y = JUMP_VELOCITY
-		$Bubble.queue_free()
+		#$Bubble.queue_free()
 		
 
 	# Get the input direction and handle the movement/deceleration.
