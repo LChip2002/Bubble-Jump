@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://lvr5bkv11tsp"]
+
+[ext_resource type="Texture2D" uid="uid://qrmahf4b3r6j" path="res://icon.svg" id="1_uotfi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cd3ni"]
+radius = 67.7663
+
+[node name="Bubble" type="StaticBody2D"]
+position = Vector2(47.3676, 55.9022)
+scale = Vector2(0.878644, 0.898193)
+
+[node name="BubbleSprite" type="Sprite2D" parent="."]
+position = Vector2(436.103, 591.98)
+rotation = 3.14159
+scale = Vector2(0.715344, -0.669984)
+texture = ExtResource("1_uotfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(436, 591)
+rotation = 3.14159
+scale = Vector2(0.715344, -0.669984)
+shape = SubResource("CircleShape2D_cd3ni")

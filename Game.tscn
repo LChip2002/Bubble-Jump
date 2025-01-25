@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnd66d34whtyq"]
+[gd_scene load_steps=13 format=3 uid="uid://bnd66d34whtyq"]
 
-[ext_resource type="Texture2D" uid="uid://qrmahf4b3r6j" path="res://icon.svg" id="1_xf5yv"]
-[ext_resource type="Script" path="res://bubble_sprite.gd" id="2_7u41f"]
-[ext_resource type="Script" path="res://character_body_2d.gd" id="2_uv2gx"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cd3ni"]
-radius = 67.7663
+[ext_resource type="Script" path="res://node_2d.gd" id="1_2kkf8"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="2_pgm5f"]
+[ext_resource type="Texture2D" uid="uid://qrmahf4b3r6j" path="res://icon.svg" id="3_kk33e"]
+[ext_resource type="PackedScene" uid="uid://lvr5bkv11tsp" path="res://Bubble.tscn" id="3_nvgv6"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="4_vaihh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0e2"]
 size = Vector2(134.662, 137.131)
@@ -33,28 +32,18 @@ fill_from = Vector2(1, 0)
 size = Vector2(65.1133, 65.4621)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_2kkf8")
 
-[node name="BubbleSprite" type="Sprite2D" parent="."]
-position = Vector2(430.547, 587.615)
-rotation = 3.14159
-scale = Vector2(0.628533, -0.601775)
-texture = ExtResource("1_xf5yv")
-script = ExtResource("2_7u41f")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 325)
+script = ExtResource("2_pgm5f")
+player_path = NodePath("../Player")
 
-[node name="Bubble" type="StaticBody2D" parent="BubbleSprite"]
-position = Vector2(609.639, -883.576)
-rotation = 3.14159
-scale = Vector2(1.39793, -1.49257)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BubbleSprite/Bubble"]
-position = Vector2(436, 591)
-rotation = 3.14159
-scale = Vector2(0.715344, -0.669984)
-shape = SubResource("CircleShape2D_cd3ni")
+[node name="Bubble" parent="." instance=ExtResource("3_nvgv6")]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(427, 497)
-script = ExtResource("2_uv2gx")
+script = ExtResource("4_vaihh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 rotation = 1.5708
@@ -64,28 +53,28 @@ shape = SubResource("RectangleShape2D_ck0e2")
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(1, 1)
 scale = Vector2(0.351563, 0.35107)
-texture = ExtResource("1_xf5yv")
+texture = ExtResource("3_kk33e")
 
-[node name="Wall_1" type="Sprite2D" parent="."]
+[node name="Wall_1" type="StaticBody2D" parent="."]
 position = Vector2(982, 322.5)
 scale = Vector2(5.57812, 10.4219)
+
+[node name="Wall_1_Sprite" type="Sprite2D" parent="Wall_1"]
 texture = SubResource("GradientTexture2D_2wosu")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall_1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1"]
 position = Vector2(0.109253, -0.0987625)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fs877")
 
-[node name="Wall_2" type="Sprite2D" parent="."]
+[node name="Wall_2" type="StaticBody2D" parent="."]
 position = Vector2(162, 323)
 scale = Vector2(5.51346, 10.4688)
+
+[node name="Wall_2_Sprite" type="Sprite2D" parent="Wall_2"]
 texture = SubResource("GradientTexture2D_h5lh4")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall_2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_2"]
 position = Vector2(-0.0906868, -0.394358)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lp0vp")
