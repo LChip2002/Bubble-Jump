@@ -52,6 +52,21 @@ background_path = NodePath("../ParallaxBackground/ParallaxLayer/Background")
 [node name="Bubble" parent="." instance=ExtResource("3_nvgv6")]
 position = Vector2(55, 51)
 
+[node name="Bubble" parent="Bubble" instance=ExtResource("3_nvgv6")]
+position = Vector2(102.431, 59.0074)
+
+[node name="Bubble" parent="Bubble/Bubble" instance=ExtResource("3_nvgv6")]
+position = Vector2(102.33, 59.4979)
+
+[node name="Bubble" parent="Bubble/Bubble/Bubble" instance=ExtResource("3_nvgv6")]
+position = Vector2(216.71, 57.9616)
+
+[node name="Bubble" parent="Bubble/Bubble/Bubble/Bubble" instance=ExtResource("3_nvgv6")]
+position = Vector2(104.026, 58.3855)
+
+[node name="Bubble" parent="Bubble/Bubble/Bubble/Bubble/Bubble" instance=ExtResource("3_nvgv6")]
+position = Vector2(104.026, 58.3855)
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(427, 497)
 script = ExtResource("4_vaihh")

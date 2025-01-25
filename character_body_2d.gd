@@ -15,7 +15,10 @@ func _physics_process(delta: float) -> void:
 	# Handles bubble jump
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		velocity = velocity.bounce(collision.get_normal())
+		#velocity = velocity.bounce(collision.get_normal())
+		velocity.y = JUMP_VELOCITY
+		$Bubble.queue_free()
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
