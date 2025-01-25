@@ -66,26 +66,26 @@ position = Vector2(1, 1)
 scale = Vector2(0.351563, 0.35107)
 texture = ExtResource("1_xf5yv")
 
-[node name="Wall 1" type="Sprite2D" parent="."]
+[node name="Wall_1" type="Sprite2D" parent="."]
 position = Vector2(982, 322.5)
 scale = Vector2(5.57812, 10.4219)
 texture = SubResource("GradientTexture2D_2wosu")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall 1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall_1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 1/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1/StaticBody2D"]
 position = Vector2(0.109253, -0.0987625)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fs877")
 
-[node name="Wall 2" type="Sprite2D" parent="."]
+[node name="Wall_2" type="Sprite2D" parent="."]
 position = Vector2(162, 323)
 scale = Vector2(5.51346, 10.4688)
 texture = SubResource("GradientTexture2D_h5lh4")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall 2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall_2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_2/StaticBody2D"]
 position = Vector2(-0.0906868, -0.394358)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lp0vp")
