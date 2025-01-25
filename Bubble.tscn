@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://lvr5bkv11tsp"]
+[gd_scene load_steps=4 format=3 uid="uid://lvr5bkv11tsp"]
 
+[ext_resource type="Script" path="res://bubble.gd" id="1_c7l7r"]
 [ext_resource type="Texture2D" uid="uid://dg7h8kumgfado" path="res://Bubble.png" id="1_hogeo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ueb1"]
@@ -8,6 +9,7 @@ size = Vector2(74.7775, 79.7642)
 [node name="Bubble" type="StaticBody2D"]
 position = Vector2(47.3676, 55.9022)
 scale = Vector2(0.878644, 0.898193)
+script = ExtResource("1_c7l7r")
 
 [node name="BubbleSprite" type="Sprite2D" parent="."]
 position = Vector2(418.861, 577.354)

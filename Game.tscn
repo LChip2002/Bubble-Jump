@@ -85,3 +85,18 @@ texture = SubResource("GradientTexture2D_h5lh4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_2"]
 position = Vector2(-4.35298, -0.394356)
 shape = SubResource("RectangleShape2D_lp0vp")
+
+[node name="UIScore" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 59.0
+
+[node name="DistScore" type="Label" parent="UIScore"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 37.0
+offset_right = 704.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 41
+text = "Distance: 0m"
