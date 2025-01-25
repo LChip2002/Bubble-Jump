@@ -1,21 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnd66d34whtyq"]
+[gd_scene load_steps=12 format=3 uid="uid://bnd66d34whtyq"]
 
 [ext_resource type="Texture2D" uid="uid://qrmahf4b3r6j" path="res://icon.svg" id="1_xf5yv"]
+[ext_resource type="Script" path="res://bubble_sprite.gd" id="2_7u41f"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="2_uv2gx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwcfl"]
-size = Vector2(125.813, 122.391)
+[sub_resource type="CircleShape2D" id="CircleShape2D_cd3ni"]
+radius = 67.7663
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0e2"]
 size = Vector2(134.662, 137.131)
 
+[sub_resource type="Gradient" id="Gradient_gpcq6"]
+offsets = PackedFloat32Array(0.974026, 0.993506, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.318182, 0.318182, 0.318182, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2wosu"]
+gradient = SubResource("Gradient_gpcq6")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs877"]
+size = Vector2(63.6023, 66.7654)
+
+[sub_resource type="Gradient" id="Gradient_4ntrr"]
+offsets = PackedFloat32Array(0, 0.987013, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.487013, 0.487013, 0.487013, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h5lh4"]
+gradient = SubResource("Gradient_4ntrr")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp0vp"]
+size = Vector2(65.1133, 65.4621)
+
 [node name="Game" type="Node2D"]
 
 [node name="BubbleSprite" type="Sprite2D" parent="."]
-position = Vector2(436.103, 591.98)
+position = Vector2(430.547, 587.615)
 rotation = 3.14159
-scale = Vector2(0.715344, -0.669984)
+scale = Vector2(0.628533, -0.601775)
 texture = ExtResource("1_xf5yv")
+script = ExtResource("2_7u41f")
 
 [node name="Bubble" type="StaticBody2D" parent="BubbleSprite"]
 position = Vector2(609.639, -883.576)
@@ -23,10 +47,10 @@ rotation = 3.14159
 scale = Vector2(1.39793, -1.49257)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BubbleSprite/Bubble"]
-position = Vector2(436, 592)
+position = Vector2(436, 591)
 rotation = 3.14159
 scale = Vector2(0.715344, -0.669984)
-shape = SubResource("RectangleShape2D_fwcfl")
+shape = SubResource("CircleShape2D_cd3ni")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(427, 497)
@@ -41,3 +65,27 @@ shape = SubResource("RectangleShape2D_ck0e2")
 position = Vector2(1, 1)
 scale = Vector2(0.351563, 0.35107)
 texture = ExtResource("1_xf5yv")
+
+[node name="Wall 1" type="Sprite2D" parent="."]
+position = Vector2(982, 322.5)
+scale = Vector2(5.57812, 10.4219)
+texture = SubResource("GradientTexture2D_2wosu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall 1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 1/StaticBody2D"]
+position = Vector2(0.109253, -0.0987625)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fs877")
+
+[node name="Wall 2" type="Sprite2D" parent="."]
+position = Vector2(162, 323)
+scale = Vector2(5.51346, 10.4688)
+texture = SubResource("GradientTexture2D_h5lh4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall 2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 2/StaticBody2D"]
+position = Vector2(-0.0906868, -0.394358)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lp0vp")
