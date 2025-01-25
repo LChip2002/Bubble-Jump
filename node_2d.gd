@@ -13,14 +13,19 @@ func _ready() -> void:
 	while y > -3000:
 		var new_bubble = bubble_scene.instantiate() # Instantiate scene
 		
-		## Assuming the root node of the scene is a Sprite2D
-		#var sprite = new_bubble.get_node("Sprite2D")  # Get the Sprite2D node inside the scene
-		#if sprite:
-			#sprite.texture = preload("res://icon.svg")  # Set the texture for the bubble sprite
+		# TODO - For bigger aspect ratio
+		#var wall_1_len = $Wall_1/CollisionShape2D.shape.size.x
+		#var wall_2_len = $Wall_2/CollisionShape2D.shape.size.x
 		
-		#new_bubble.texture = bubble_texture
-		new_bubble.position = Vector2(randf_range(-width/2, width/2),y)
+		## Avoid spawning the bubble within the wall regions
+		#while (bubble_x >= (width - wall_1_len)) or (bubble_x <= (-width + wall_2_len)):
+			#bubble_x = randf_range(-width / 2, width / 2)  # Re-generate the X position
+		
+		var bubble_x = randf_range(-width / 2, width / 2)
+		
+		new_bubble.position = Vector2(bubble_x,y)
 		add_child(new_bubble)
-		y -= randf_range(0,210)
+		y -= randf_range(10,60)
+		
 
 	pass

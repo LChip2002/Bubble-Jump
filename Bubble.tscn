@@ -1,22 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://lvr5bkv11tsp"]
 
-[ext_resource type="Texture2D" uid="uid://qrmahf4b3r6j" path="res://icon.svg" id="1_uotfi"]
+[ext_resource type="Texture2D" uid="uid://dg7h8kumgfado" path="res://Bubble.png" id="1_hogeo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cd3ni"]
-radius = 67.7663
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ueb1"]
+size = Vector2(74.7775, 79.7642)
 
 [node name="Bubble" type="StaticBody2D"]
 position = Vector2(47.3676, 55.9022)
 scale = Vector2(0.878644, 0.898193)
 
 [node name="BubbleSprite" type="Sprite2D" parent="."]
-position = Vector2(436.103, 591.98)
+position = Vector2(418.861, 577.354)
 rotation = 3.14159
-scale = Vector2(0.715344, -0.669984)
-texture = ExtResource("1_uotfi")
+scale = Vector2(1.78037, -1.82301)
+texture = ExtResource("1_hogeo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(436, 591)
+position = Vector2(418.978, 576.822)
 rotation = 3.14159
 scale = Vector2(0.715344, -0.669984)
-shape = SubResource("CircleShape2D_cd3ni")
+shape = SubResource("RectangleShape2D_1ueb1")

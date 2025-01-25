@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_2kkf8"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_pgm5f"]
-[ext_resource type="Texture2D" uid="uid://qrmahf4b3r6j" path="res://icon.svg" id="3_kk33e"]
 [ext_resource type="PackedScene" uid="uid://lvr5bkv11tsp" path="res://Bubble.tscn" id="3_nvgv6"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="4_vaihh"]
+[ext_resource type="Texture2D" uid="uid://d12vsx0srmi4a" path="res://Nail.png" id="5_k1wgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0e2"]
-size = Vector2(134.662, 137.131)
+size = Vector2(113.421, 91.0225)
 
 [sub_resource type="Gradient" id="Gradient_gpcq6"]
 offsets = PackedFloat32Array(0.974026, 0.993506, 1)
@@ -18,7 +18,7 @@ gradient = SubResource("Gradient_gpcq6")
 fill_from = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs877"]
-size = Vector2(63.6023, 66.7654)
+size = Vector2(55.0364, 66.7654)
 
 [sub_resource type="Gradient" id="Gradient_4ntrr"]
 offsets = PackedFloat32Array(0, 0.987013, 1)
@@ -29,7 +29,7 @@ gradient = SubResource("Gradient_4ntrr")
 fill_from = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lp0vp"]
-size = Vector2(65.1133, 65.4621)
+size = Vector2(56.5887, 65.4621)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2kkf8")
@@ -38,33 +38,39 @@ script = ExtResource("1_2kkf8")
 position = Vector2(575, 325)
 script = ExtResource("2_pgm5f")
 player_path = NodePath("../Player")
+wall_1_path = NodePath("../Wall_1")
+wall_2_path = NodePath("../Wall_2")
 
 [node name="Bubble" parent="." instance=ExtResource("3_nvgv6")]
+position = Vector2(55, 51)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(427, 497)
 script = ExtResource("4_vaihh")
 
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-4.00001, -4.99999)
+scale = Vector2(0.999999, 1.1875)
+texture = ExtResource("5_k1wgu")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-4, -3.90945)
 rotation = 1.5708
 scale = Vector2(0.35107, 0.351563)
 shape = SubResource("RectangleShape2D_ck0e2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(1, 1)
-scale = Vector2(0.351563, 0.35107)
-texture = ExtResource("3_kk33e")
 
 [node name="Wall_1" type="StaticBody2D" parent="."]
 position = Vector2(982, 322.5)
 scale = Vector2(5.57812, 10.4219)
 
 [node name="Wall_1_Sprite" type="Sprite2D" parent="Wall_1"]
+position = Vector2(4.61625, 0)
+scale = Vector2(0.855742, 1)
 texture = SubResource("GradientTexture2D_2wosu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1"]
-position = Vector2(0.109253, -0.0987625)
-scale = Vector2(1, 1)
+visible = false
+position = Vector2(4.39218, -0.0987625)
 shape = SubResource("RectangleShape2D_fs877")
 
 [node name="Wall_2" type="StaticBody2D" parent="."]
@@ -72,9 +78,10 @@ position = Vector2(162, 323)
 scale = Vector2(5.51346, 10.4688)
 
 [node name="Wall_2_Sprite" type="Sprite2D" parent="Wall_2"]
+position = Vector2(-4.0293, 0)
+scale = Vector2(0.874084, 1)
 texture = SubResource("GradientTexture2D_h5lh4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_2"]
-position = Vector2(-0.0906868, -0.394358)
-scale = Vector2(1, 1)
+position = Vector2(-4.35298, -0.394356)
 shape = SubResource("RectangleShape2D_lp0vp")
