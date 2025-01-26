@@ -235,4 +235,5 @@ texture = ExtResource("7_pn1a6")
 
 [node name="HUD" parent="." instance=ExtResource("9_jiqin")]
 
+[connection signal="timer_countdown" from="." to="HUD" method="_on_timer_changed"]
 [connection signal="y_position_changed" from="Camera2D" to="HUD" method="_on_y_position_changed"]
