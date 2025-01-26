@@ -18,9 +18,6 @@ func _ready() -> void:
 	width = get_viewport().size.x
 	randomize()
 	
-	 # Get reference to the player node
-	# player = get_node(player_path)
-	
 	var y = 0
 	
 	while y > -800000:
@@ -53,9 +50,12 @@ func _process(delta):
 # Checks high score and signals end screen
 func end_game():
 	
-	# Pauses the game
+	# Pauses elements of the game
 	set_process(false)
-	set_physics_process(false)
+	$Player/Sprite2D.set_physics_process(false)
+	
+	# Hides player when scores come up
+	$Player.visible = false
 	
 	# High Score File text retrieved
 	var content = FileAccess.open("res://HighScore.txt", FileAccess.READ)
@@ -69,6 +69,6 @@ func end_game():
 	$FinalScoreDisplay.inGame = false
 	
 	# Final Score screen displayed with score	
-	$Player.set_process(false)
+	$Player/Sprite2D.set_process(false)
 	emit_signal("display_score", high_score, $HUD.height_distance)
 		

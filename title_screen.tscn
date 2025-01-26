@@ -34,10 +34,10 @@ theme_override_font_sizes/font_size = 25
 text = "Press A to Start"
 
 [node name="High_Score" type="Label" parent="."]
-offset_left = 157.0
-offset_top = 567.0
-offset_right = 480.0
-offset_bottom = 611.0
+offset_left = 141.0
+offset_top = 572.0
+offset_right = 464.0
+offset_bottom = 616.0
 theme_override_fonts/font = ExtResource("2_20lp0")
 theme_override_font_sizes/font_size = 19
 text = "High Score: "
