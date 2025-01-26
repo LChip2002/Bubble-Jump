@@ -3,6 +3,9 @@ extends Node2D
 var bubble_scene = preload("res://Bubble.tscn")
 var width
 var spawn_timer: Timer
+var game_countdown: Timer
+var active_platforms = []
+var spawn_y = 0 # Tracks highest y coordinate where platforms are spawned
 
 func on_player_died():
 	show_game_over()
@@ -28,31 +31,31 @@ func _ready() -> void:
 	
 	var y = 0
 	
-	# TODO - Loop until player death
-	while y > -3000:
+	while y > -800000:
 		var new_bubble = bubble_scene.instantiate() # Instantiate scene
-		
-		# TODO - For bigger aspect ratio
-		#var wall_1_len = $Wall_1/CollisionShape2D.shape.size.x
-		#var wall_2_len = $Wall_2/CollisionShape2D.shape.size.x
-		
-		## Avoid spawning the bubble within the wall regions
-		#while (bubble_x >= (width - wall_1_len)) or (bubble_x <= (-width + wall_2_len)):
-			#bubble_x = randf_range(-width / 2, width / 2)  # Re-generate the X position
 		
 		var bubble_x = randf_range(-width / 2, width / 2)
 		
 		new_bubble.position = Vector2(bubble_x * 1.5,y)
 		add_child(new_bubble)
 		y -= randf_range(10,30)
-		
-	#await get_tree().create_timer(10.0).timeout # waits for 1 second
 	
-	#_ready()
-
 	pass
 	
-
+func _process(delta):
+	var player = $Player
+	var player_y = player.position.y
+	
+	# Spawn platforms above player if necessary
+	while spawn_y > player_y - 800:
+		spawn_bubble()
+		spawn_y -= 150
+		
+	# Remove platforms below the screen
+	for platform in active_platforms:
+		if platform.position.y > player_y + 600: # If off screen
+			active_platforms.erase(platform)
+			platform.queue_free()
 	
 # Function to spawn a bubble
 func spawn_bubble():
@@ -72,4 +75,5 @@ func spawn_bubble():
 			new_bubble.position = Vector2(bubble_x, 600)  # Spawn at a fixed y position (change as needed)
 			add_child(new_bubble)
 			r -= randf_range(10,60)
+			active_platforms.append(new_bubble)
 		

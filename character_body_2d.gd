@@ -15,6 +15,11 @@ func _physics_process(delta: float) -> void:
 	# Handles bubble jump
 	var collision = move_and_collide(velocity * delta)
 	if collision:
+		
+		## Check if the object collided with is a StaticBody2D named "Bubble"
+		#if collision.collider.is_in_group("Bubble"):
+			#collision.collider.queue_free()  # Remove the Bubble StaticBody2D
+		
 		#velocity = velocity.bounce(collision.get_normal())
 		velocity.y = JUMP_VELOCITY
 		#$Bubble.queue_free()
