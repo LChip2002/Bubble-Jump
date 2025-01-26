@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnd66d34whtyq"]
+[gd_scene load_steps=18 format=3 uid="uid://bnd66d34whtyq"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_2kkf8"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_pgm5f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://death_floor.gd" id="6_v78cm"]
 [ext_resource type="Texture2D" uid="uid://g6tyr210y4ju" path="res://sky.jpg" id="7_pn1a6"]
 [ext_resource type="Texture2D" uid="uid://dg7h8kumgfado" path="res://Bubble.png" id="7_vryhw"]
+[ext_resource type="PackedScene" uid="uid://drdyeyrw0j08n" path="res://hud.tscn" id="9_jiqin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0e2"]
 size = Vector2(113.421, 91.0225)
@@ -231,3 +232,7 @@ visible = false
 position = Vector2(657.25, 130)
 scale = Vector2(1.26016, 1.38542)
 texture = ExtResource("7_pn1a6")
+
+[node name="HUD" parent="." instance=ExtResource("9_jiqin")]
+
+[connection signal="y_position_changed" from="Camera2D" to="HUD" method="_on_y_position_changed"]

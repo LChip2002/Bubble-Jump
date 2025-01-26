@@ -13,6 +13,9 @@ var wall_2
 var death_floor
 var background
 
+# Define signal
+signal y_position_changed(player_y)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node(player_path)
@@ -31,6 +34,10 @@ func _ready():
 func _process(delta: float):
 	var player_y = player.position.y
 	var player_x = player.position.x
+	
+	# Sends signal of y coordinate for distance calculation
+	emit_signal("y_position_changed", player_y)
+	
 	#if player_y < position.y:
 	position.y = player_y
 	
