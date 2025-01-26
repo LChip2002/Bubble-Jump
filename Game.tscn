@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d12vsx0srmi4a" path="res://Nail.png" id="5_k1wgu"]
 [ext_resource type="Script" path="res://death_floor.gd" id="6_v78cm"]
 [ext_resource type="Texture2D" uid="uid://g6tyr210y4ju" path="res://sky.jpg" id="7_pn1a6"]
-[ext_resource type="Texture2D" uid="uid://wn63fd6y0uen" path="res://Red.png" id="7_yc6my"]
+[ext_resource type="Texture2D" uid="uid://dg7h8kumgfado" path="res://Bubble.png" id="7_vryhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0e2"]
 size = Vector2(113.421, 91.0225)
@@ -133,9 +133,94 @@ position = Vector2(251, 11)
 shape = SubResource("RectangleShape2D_74gxh")
 
 [node name="Sprite2D" type="Sprite2D" parent="DeathFloor"]
-position = Vector2(251, 11)
-scale = Vector2(17.5313, 1)
-texture = ExtResource("7_yc6my")
+position = Vector2(-13.2504, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(18, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(49.2504, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(80.5008, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D5" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(111.25, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D6" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(142.501, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D7" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(173.751, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D8" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(205.002, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D9" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(235.25, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D10" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(266.501, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D11" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(297.751, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D12" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(329.002, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D13" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(359.751, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D14" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(391.002, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D15" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(422.252, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D16" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(453.502, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D17" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(484.25, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
+
+[node name="Sprite2D18" type="Sprite2D" parent="DeathFloor"]
+position = Vector2(515.501, 11)
+scale = Vector2(1.01565, 1)
+texture = ExtResource("7_vryhw")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
