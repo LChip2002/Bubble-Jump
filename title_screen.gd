@@ -20,3 +20,6 @@ func _process(delta: float) -> void:
 		# Starts the game on button press
 		get_tree().change_scene_to_file("res://Game.tscn")
 		pass
+		
+	elif Input.is_action_just_pressed("ui_x"):
+		get_tree().quit()
