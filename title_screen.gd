@@ -3,6 +3,13 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	# Displays High score on main menu
+	var content = FileAccess.open("res://HighScore.txt", FileAccess.READ)
+	var high_score = content.get_as_text()
+	
+	$High_Score.text = "High Score:  " + high_score
+	
 	pass # Replace with function body.
 
 

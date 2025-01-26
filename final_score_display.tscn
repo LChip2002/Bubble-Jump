@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd02wdw1vyfxp"]
+
+[ext_resource type="Script" path="res://final_score_display.gd" id="1_ti0wx"]
+[ext_resource type="FontFile" uid="uid://b8uak4es7to0n" path="res://Daydream.ttf" id="2_uxw5h"]
+
+[sub_resource type="Gradient" id="Gradient_6y384"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vt8uc"]
+gradient = SubResource("Gradient_6y384")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 1)
+
+[node name="FinalScoreDisplay" type="CanvasLayer"]
+script = ExtResource("1_ti0wx")
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(280.5, 376)
+scale = Vector2(6.07812, 7.4375)
+texture = SubResource("GradientTexture2D_vt8uc")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 146.0
+offset_top = 288.0
+offset_right = 405.0
+offset_bottom = 323.0
+theme_override_fonts/font = ExtResource("2_uxw5h")
+theme_override_font_sizes/font_size = 19
+text = "your score: "
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 540.0
+offset_right = 429.0
+offset_bottom = 587.0
+theme_override_fonts/font = ExtResource("2_uxw5h")
+theme_override_font_sizes/font_size = 16
+text = "Exit
+press b"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 108.0
+offset_top = 540.0
+offset_right = 258.0
+offset_bottom = 599.0
+theme_override_fonts/font = ExtResource("2_uxw5h")
+theme_override_font_sizes/font_size = 16
+text = "Play again 
+ Press a"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+offset_left = 147.0
+offset_top = 252.0
+offset_right = 347.0
+offset_bottom = 287.0
+theme_override_fonts/font = ExtResource("2_uxw5h")
+theme_override_font_sizes/font_size = 16
+text = "High Score: "

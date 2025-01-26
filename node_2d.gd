@@ -8,6 +8,7 @@ var time_left = 30
 
 # Define signal
 signal timer_countdown(time_left)
+signal display_score(high_score, new_score)
 
 func on_player_died():
 	show_game_over()
@@ -21,10 +22,11 @@ func _on_timer_timeout() -> void:
 	#if not is_player_alive():
 		#return  # Don't spawn if the player is dead
 		pass
-	
-
 
 func _ready() -> void:
+	
+	# Hide overlay
+	$FinalScoreDisplay.visible = false
 	
 	width = get_viewport().size.x
 	randomize()
@@ -63,7 +65,11 @@ func _process(delta):
 		
 # Checks high score and signals end screen
 func end_game():
-	# TODO - High Score File text retrieved
+	
+	# Pauses the game
+	get_tree().paused = true
+	
+	# High Score File text retrieved
 	var content = FileAccess.open("res://HighScore.txt", FileAccess.READ)
 	var high_score = content.get_as_text()
 	
@@ -72,5 +78,6 @@ func end_game():
 		file.store_string(str($HUD.height_distance))
 		
 	# Final Score screen displayed with score		
-	
+	emit_signal("display_score", high_score, $HUD.height_distance)
+	get_tree().change_scene_to_file("res://final_score_display.tscn")
 		
