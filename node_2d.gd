@@ -51,13 +51,26 @@ func _process(delta):
 	
 	time_left -= delta
 	
+	# Countdown timer and signals to ui metric
 	if time_left > 0:
-		# Countdown timer and signals to ui metric
 		# Sends signal to update visual timer
 		await emit_signal("timer_countdown", time_left)
 			
 		# Delay time reduction
 		await get_tree().create_timer(1.0).timeout
+	else:
+		end_game()
 		
-
+# Checks high score and signals end screen
+func end_game():
+	# TODO - High Score File text retrieved
+	var content = FileAccess.open("res://HighScore.txt", FileAccess.READ)
+	var high_score = content.get_as_text()
+	
+	if int(high_score) < $HUD.height_distance:
+		var file = FileAccess.open("res://HighScore.txt", FileAccess.WRITE)
+		file.store_string(str($HUD.height_distance))
+		
+	# Final Score screen displayed with score		
+	
 		

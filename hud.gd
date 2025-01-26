@@ -15,7 +15,10 @@ func _process(delta: float) -> void:
 	
 # Update the Label with the new Y position
 func _on_y_position_changed(y_position):
-	$Distance.text = "Distance: " + str(roundf((820 - y_position)/10)) + "m"
+	
+	height_distance = roundf((820 - y_position)/10)
+	
+	$Distance.text = "Distance: " + str(height_distance) + "m"
 	
 # Update time visual
 func _on_timer_changed(time_left):
