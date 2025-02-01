@@ -25,6 +25,7 @@ theme_override_font_sizes/font_size = 43
 text = "Bubble Jump"
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 82.0
 offset_top = 634.0
 offset_right = 460.0
@@ -34,6 +35,7 @@ theme_override_font_sizes/font_size = 25
 text = "Press A to Start"
 
 [node name="High_Score" type="Label" parent="."]
+layout_mode = 0
 offset_left = 141.0
 offset_top = 572.0
 offset_right = 464.0
