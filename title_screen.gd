@@ -6,7 +6,7 @@ func _ready() -> void:
 	
 	## Displays High score on main menu
 	
-	var path = "res://HighScore.txt"
+	var path = "user://BubbleJumpHighScore.txt"
 	#DirAccess.make_dir_absolute("res://hello.txt")
 	
 	# Checks if score file exists if not it makes one in the exe directory

@@ -18,7 +18,7 @@ func _ready() -> void:
 	width = get_viewport().size.x
 	randomize()
 	
-	var y = 0
+	var y = -10
 	
 	while y > -800000:
 		var new_bubble = bubble_scene.instantiate() # Instantiate scene
@@ -27,7 +27,7 @@ func _ready() -> void:
 		
 		new_bubble.position = Vector2(bubble_x * 1.5,y)
 		add_child(new_bubble)
-		y -= randf_range(10,30)
+		y -= randf_range(15,25)
 	
 	pass
 	
@@ -58,11 +58,11 @@ func end_game():
 	$Player.visible = false
 	
 	# High Score File text retrieved
-	var content = FileAccess.open("res://HighScore.txt", FileAccess.READ)
+	var content = FileAccess.open("user://BubbleJumpHighScore.txt", FileAccess.READ)
 	var high_score = content.get_as_text()
 	
 	if int(high_score) < $HUD.height_distance:
-		var file = FileAccess.open("res://HighScore.txt", FileAccess.WRITE)
+		var file = FileAccess.open("user://BubbleJumpHighScore.txt", FileAccess.WRITE)
 		file.store_string(str($HUD.height_distance))
 	
 	$FinalScoreDisplay.visible = true
